@@ -31,7 +31,7 @@ axios_instance.interceptors.response.use((response) => {
         config._retry = true;
         try {
             refreshing_token = refreshing_token ? refreshing_token : refresh_token();
-            let res = await refresh_token();
+            let res = await refreshing_token;
             refreshing_token = null;
             if(res.data.access_token) {
                 access_token = res.data.access_token;
